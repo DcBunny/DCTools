@@ -39,7 +39,7 @@ infix operator =~ {
     precedence 130
 }
 
-func =~(lhs: String, rhs: String) -> Bool {
+func =~ (lhs: String, rhs: String) -> Bool {
     do {
         return try RegexHelper(rhs).match(lhs)
     } catch _ {
