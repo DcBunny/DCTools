@@ -10,9 +10,23 @@ import UIKit
 
 class ViewController: UIViewController
 {
+    var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadPageSubViews()
+    }
+    
+    //MARK: - 使用匿名的闭包模拟局部scope，隔离UI代码，优化规范性
+    func loadPageSubViews() {
+        titleLabel = {
+            let label = UILabel(frame: CGRectMake(150, 30, 50, 40))
+            label.textColor = UIColor.redColor()
+            label.text = "Title"
+            self.view.addSubview(label)
+            return label
+        }()
     }
 }
 
