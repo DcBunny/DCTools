@@ -11,22 +11,34 @@ import UIKit
 class ViewController: UIViewController
 {
     var titleLabel: UILabel!
+    var btn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadPageSubViews()
     }
     
     //MARK: - 使用匿名的闭包模拟局部scope，隔离UI代码，优化规范性
     func loadPageSubViews() {
         titleLabel = {
-            let label = UILabel(frame: CGRectMake(150, 30, 50, 40))
+            let label = UILabel(frame: CGRect(x: 150, y: 30, width: 50, height: 40))
             label.textColor = UIColor.redColor()
             label.text = "Title"
-            self.view.addSubview(label)
+            view.addSubview(label)
             return label
         }()
+        
+        btn = {
+            let button = UIButton(frame: CGRect(x: 150, y: 100, width: 80, height: 40))
+            button.setTitle("Button", forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
+            view.addSubview(button)
+            button.addTarget(self, action: #selector(click), forControlEvents: UIControlEvents.TouchUpInside)
+            return button
+        }()
+    }
+    
+    func click() {
+        print("click")
     }
 }
 

@@ -11,3 +11,12 @@
 
 ## 基于GCD的可取消定时器
 [TimerHelper](TimerHelper/TimerHelper.MD)：基于 GCG 实现的可取消定时器，可以延迟 timer 秒执行操作。
+
+## Swizzle
+[Swizzle Example](SwizzleExample/SwizzleExample.swift)：利用swizzle的方法的runtime，实现button的点击统计。
+
+## MD5Helper
+[MD5Helper](MD5Helper/MD5Helper.swift)：通过调用C动态库，实现MD5。
+
+## Protocol - delegate 模式的正确写法
+[Protocol - delegate 模式](HowToWrite-protocol-delegate/HowToWrite-protocol-delegate.swift)：protocol-delegate 模式是一种常用的设计模式，在 ARC 中，一般会将 delegate 指定为 weak，但是 swift 中的 protocol 是可以被 struct 和 enum 遵守的，而 struct 和 enum 是不通过 ARC 管理内存的，所以需要在声明 protocol 时指定只能由 class 类型实现，这样便可以用 weak 修饰。
