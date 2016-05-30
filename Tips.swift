@@ -42,6 +42,42 @@ class ViewController: UIViewController
     }
 }
 
+//MARK: - 分离属性的访问域
+
+/**
+ * 分离属性的访问域
+ * name的get方法为默认的internal，可在同一module(target)中访问
+ * name的set方法为private，限于本文件内访问，即在MyClass类中访问
+ */
+class MyClass {
+    
+    private(set) var name: String   // 分离属性的访问域
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func setName(name: String) {
+        self.name = name
+    }
+}
+
+//MARK: - 对Log输出的封装
+/**
+ * 对swift Log输出的封装
+ * 包含所在文件，行号，方法，和Log信息
+ * 同时可以指定编译条件
+ */
+func printLog<T>(message: T,
+              file: String = #file,
+              method: String = #function,
+              line: Int = #line)
+{
+    //    #if DEBUG
+    print("\((file as NSString).lastPathComponent)[\(line)], \(method): \(message)")
+    //    #endif
+}
+
 //MARK: - 自省，判断对象属于的类型
 
 /*
