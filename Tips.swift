@@ -42,6 +42,12 @@ class ViewController: UIViewController
     }
 }
 
+//MARK: - Selector的优雅写法
+private extension Selector {
+    static let buttonTapped =
+        #selector(ViewController.buttonTapped(_:))
+}
+
 //MARK: - 分离属性的访问域
 
 /**
